@@ -1,0 +1,285 @@
+#  Shell Scripting Notes
+
+##  1. What is Shell Scripting?
+
+**Shell scripting** is writing a series of commands in a file (called a script) to be executed by the shell (usually bash). It automates tasks you’d normally do one by one in the terminal.
+
+**Use Cases:**
+
+- Automating repetitive tasks
+- Backup systems
+- Server maintenance
+- Installation scripts
+
+A shell script is just a text file with `.sh` extension that starts with:
+
+```bash
+#!/bin/bash
+```
+
+---
+
+##  2. Running Shell Scripts in Ubuntu VM
+
+1. Write your script using Vim or any editor:
+
+```bash
+vim myscript.sh
+```
+
+2. Make it executable:
+
+```bash
+chmod +x myscript.sh
+```
+
+3. Run the script:
+
+```bash
+./myscript.sh
+```
+
+---
+
+##  3. `echo` Command
+
+The `echo` command is used to print text to the terminal:
+
+```bash
+echo "Hello, World"
+```
+
+---
+
+##  4. `chmod +x` Explanation
+
+This makes a file **executable**.
+
+```bash
+chmod +x filename.sh
+```
+
+Now you can run it using `./filename.sh`
+
+---
+
+##  5. Comparisons in Bash
+
+For **numbers**, use:
+
+- `-eq`: Equal
+- `-ne`: Not equal
+- `-gt`: Greater than
+- `-lt`: Less than
+- `-ge`: Greater or equal
+- `-le`: Less or equal
+
+For **strings**, use:
+
+- `=`: Equal
+- `!=`: Not equal
+
+**Note**: Bash doesn't support floating point (decimals) natively. You can use `bc` or `awk`.
+
+Example with `bc`:
+```bash
+echo "3.2 > 2.1" | bc  # Outputs 1 (true)
+```
+
+---
+
+##  6. Loops in Bash
+
+### For Loop:
+
+```bash
+for i in 1 2 3 4 5
+do
+  echo "Number: $i"
+done
+```
+
+### While Loop:
+
+```bash
+count=5
+while [ $count -gt 0 ]
+do
+  echo "Count: $count"
+  count=$((count - 1))
+done
+```
+
+*Use `for` when you know how many times to loop, and `while` when looping based on a condition.*
+
+---
+
+##  7. File and Directory Operations
+
+- `touch file.txt` – create a file
+- `mkdir folder` – make folder
+- `rm file.txt` – delete file
+- `rmdir folder` – delete folder
+
+### File Tests:
+
+- `-f` : file exists
+- `-d` : directory exists
+- `-e` : file or directory exists
+- `-r` : readable
+- `-w` : writable
+- `-x` : executable
+- `-s` : not empty
+
+### Writing to Files:
+
+```bash
+echo "Hello" > file.txt     # overwrite
+echo "Another" >> file.txt  # append
+```
+
+---
+
+##  8. Mini Project: File Backup Script
+
+```bash
+#!/bin/bash
+
+echo "Enter the filename to back up:"
+read filename
+
+if [ -f "$filename" ]; then
+    cp "$filename" "$filename.bak"
+    echo "Backup created"
+    echo "$(date): Backup for $filename" >> backup.log
+else
+    echo "File does not exist."
+    echo "$(date): ERROR - $filename not found" >> backup.log
+fi
+```
+
+---
+
+##  9. `cp` Command
+
+`cp` is used to copy files and directories:
+
+- `cp file1 file2` – copy file
+- `cp -r folder1 folder2` – copy directory recursively
+
+---
+
+##  10. General Command Reference
+
+### File Management
+
+- `ls` – list files
+- `cd` – change directory
+- `cd ..` – go one level up
+- `pwd` – current directory
+- `rm`, `mkdir`, `rmdir`, `touch`
+
+### Viewing Content
+
+- `cat`, `less`, `head`, `tail`, `echo`
+
+### User/Input
+
+- `read varname` – get input
+- `echo $varname` – print variable
+
+### Variables & Math
+
+```bash
+a=5
+b=3
+echo $((a + b))
+```
+
+### Loops & Conditions
+
+```bash
+if [ $a -gt $b ]; then
+  echo "a is greater"
+fi
+```
+
+```bash
+for i in 1 2 3; do echo $i; done
+while [ $i -gt 0 ]; do i=$((i-1)); done
+```
+
+### Permissions
+
+- `chmod +x file.sh` – make executable
+- `ls -l` – show file permissions
+
+---
+
+##  Shortcuts
+
+- `Tab` – auto-complete
+- `Ctrl + C` – cancel command
+- `Ctrl + L` – clear screen
+- `!!` – repeat last command
+
+---
+
+##  11. Functions in Bash
+
+### What is a Function?
+A function is a block of reusable code that can be called multiple times in your script.
+
+### Basic Syntax:
+```bash
+function_name() {
+  commands
+}
+```
+
+### Example 1: Simple Function
+```bash
+say_hello() {
+  echo "Hello, world!"
+}
+
+say_hello
+```
+
+### Example 2: Function with Parameters
+```bash
+greet_user() {
+  echo "Hi $1, welcome to shell scripting!"
+}
+
+greet_user "Alex"
+```
+
+### Example 3: Function with Logic
+```bash
+check_file() {
+  if [ -f "$1" ]; then
+    echo " $1 exists!"
+  else
+    echo " $1 not found."
+  fi
+}
+
+check_file "test.txt"
+```
+
+### Returning Values:
+Functions don't return like in other languages, but you can use `echo` and capture it:
+```bash
+add() {
+  result=$(( $1 + $2 ))
+  echo $result
+}
+
+sum=$(add 3 5)
+echo "Sum: $sum"
+```
+
+---
+
+

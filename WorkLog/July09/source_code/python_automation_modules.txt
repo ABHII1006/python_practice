@@ -1,0 +1,46 @@
+
+sys.argv	List of command-line arguments
+sys.exit()	Exit the program
+sys.path	List of paths where Python looks for modules
+sys.version	Python version (string)
+sys.platform	Current platform (e.g., 'win32', 'linux')
+sys.stdin, stdout, stderr	Standard input/output/error streams
+sys.getsizeof(obj)	Get memory size of an object
+
+
+os.getcwd() | Get current working directory
+os.chdir('path') | Change current directory
+os.listdir('path') | List files/folders in a directory
+os.mkdir('folder') | Create a new directory
+os.makedirs('dir/subdir') | Create nested directories
+os.remove('file.txt') | Delete a file
+os.rmdir('folder') | Delete an empty folder
+os.rename('old', 'new') | Rename/move file or folder
+os.path.exists('path') | Check if path exists
+os.path.join('a', 'b') | Join paths in a platform-safe way
+os.path.basename(path) | Get file name from path
+os.path.dirname(path) | Get directory from path
+os.environ['KEY'] | Access environment variables
+
+
+shutil.copy(src, dest) | Copy a file
+shutil.copy2(src, dest) | Copy file with metadata
+shutil.copytree(src, dest) | Copy entire directory tree
+shutil.move(src, dest) | Move/rename file or folder
+shutil.rmtree(path) | Remove a directory and its contents
+shutil.make_archive('name', 'zip', dir) | Create archive (.zip, .tar, etc.)
+shutil.unpack_archive('file.zip') | Unpack archive into current directory
+shutil.disk_usage('/') | Get disk usage (total, used, free)
+shutil.which('python') | Find path of a command like in terminal
+
+
+
+
+
+
+
+
+
+
+
+
