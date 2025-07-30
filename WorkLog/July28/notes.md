@@ -6,5 +6,5 @@ It processes financial transaction data , categorizes expenses using pandas, and
 Report Generation
 It generates a categorized report and saves it as a CSV in the directory for further analysis or visualization.
 
-End-to-End Automation with Shell Script & Cron
-A shell script runs the whole workflow, and cron is used to schedule the process for automated execution.
+End-to-End Automation with Shell Script 
+A shell script that runs the whole workflow and automated execution.

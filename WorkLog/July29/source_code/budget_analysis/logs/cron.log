@@ -1,0 +1,30 @@
+Activating virtual environment...
+Running process_data.py...
+Date           datetime64[ns]
+Description            object
+Amount                float64
+Month                  object
+dtype: object
+Running generate_report.py...
+['July' 'August']
+Enter the month : Traceback (most recent call last):
+  File "/home/abhishek/budget_analysis/scripts/generate_report.py", line 6, in <module>
+    month=input("Enter the month : ")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+All steps completed!
+Activating virtual environment...
+Running process_data.py...
+Date           datetime64[ns]
+Description            object
+Amount                float64
+Month                  object
+dtype: object
+Running generate_report.py...
+['July' 'August']
+Enter the month : Traceback (most recent call last):
+  File "/home/abhishek/budget_analysis/scripts/generate_report.py", line 6, in <module>
+    month=input("Enter the month : ")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+All steps completed!
